@@ -6,12 +6,13 @@
     <title>الخدمات المالية | الأسواق الآن</title>
     <style>
         :root {
-            --bg-color: #0b0f19;
-            --card-bg: #151c2c;
-            --accent-color: #38bdf8;
-            --text-color: #f8fafc;
-            --text-muted: #94a3b8;
-            --border-color: #1e293b;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --primary-blue: #1d4ed8;
+            --text-color: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --radius-main: 16px;
         }
 
         body {
@@ -25,21 +26,27 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 18px 5%;
+            padding: 16px 5%;
             background-color: var(--card-bg);
             border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         }
 
-        .logo { font-size: 1.6rem; font-weight: 800; color: var(--accent-color); }
-        .logo span { color: #ffffff; }
+        .logo {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title { font-size: 1.5rem; font-weight: 800; color: var(--text-color); }
+        .logo-sub { font-size: 0.75rem; color: var(--text-muted); margin-top: -3px; }
 
         nav a {
             color: var(--text-color);
             text-decoration: none;
-            margin-right: 18px;
-            font-weight: 500;
+            margin-right: 20px;
+            font-weight: 600;
         }
-        nav a:hover { color: var(--accent-color); }
+        nav a:hover { color: var(--primary-blue); }
 
         .container {
             max-width: 1100px;
@@ -52,8 +59,8 @@
             margin-bottom: 40px;
         }
 
-        .page-title h1 { font-size: 2.2rem; color: #fff; }
-        .page-title p { color: var(--text-muted); font-size: 1.1rem; }
+        .page-title h1 { font-size: 2.2rem; color: var(--text-color); margin-bottom: 10px; }
+        .page-title p { color: var(--text-muted); font-size: 1.05rem; }
 
         .services-grid {
             display: grid;
@@ -64,15 +71,16 @@
         .service-card {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 25px;
+            border-radius: var(--radius-main);
+            padding: 30px;
             text-align: center;
-            transition: transform 0.2s;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            transition: transform 0.2s, border-color 0.2s;
         }
 
         .service-card:hover {
             transform: translateY(-5px);
-            border-color: var(--accent-color);
+            border-color: var(--primary-blue);
         }
 
         .service-icon {
@@ -80,14 +88,17 @@
             margin-bottom: 15px;
         }
 
-        .service-card h3 { color: #fff; margin-bottom: 10px; }
+        .service-card h3 { color: var(--text-color); margin-bottom: 12px; font-size: 1.25rem; }
         .service-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">الأسواق <span>الآن</span></div>
+        <div class="logo">
+            <span class="logo-title">الأسواق الآن</span>
+            <span class="logo-sub">marketss now</span>
+        </div>
         <nav>
             <a href="index.html">الرئيسية</a>
             <a href="article.html">التحليلات</a>
@@ -114,7 +125,6 @@
                 <h3>التغطية الإخبارية الحية</h3>
                 <p>متابعة دقيقة للأخبار الاقتصادية الصادرة عن البنوك المركزية والبيانات المؤثرة على حركة الأسواق.</p>
             </div>
-
             <div class="service-card">
                 <div class="service-icon">💡</div>
                 <h3>الاستشارات والاستراتيجيات</h3>
