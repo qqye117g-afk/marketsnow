@@ -3,219 +3,199 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الأسواق الآن | marketss now</title>
+    <title>markets now | الأسواق الآن</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --bg-color: #f8fafc;
-            --card-bg: #ffffff;
-            --primary-blue: #1d4ed8;
-            --accent-cyan: #06b6d4;
-            --text-color: #0f172a;
-            --text-muted: #64748b;
-            --border-color: #e2e8f0;
-            --radius-main: 16px;
-            --radius-sm: 10px;
-        }
-
-        body {
+        * {
+            box-sizing: border-box;
             margin: 0;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
+            padding: 0;
+            font-family: 'Tajawal', sans-serif;
+        }
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            padding-bottom: 90px;
         }
 
+        /* الهيدر بالشعار المتناسق الجديد */
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 5%;
-            background-color: var(--card-bg);
-            border-bottom: 1px solid var(--border-color);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            background: #ffffff;
+            color: #1e293b;
+            padding: 12px 20px;
+            text-align: center;
+            border-bottom: 1px solid #e2e8f0;
         }
-
-        .logo {
+        .logo-container {
             display: flex;
             flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
-
-        .logo-title {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--text-color);
-            letter-spacing: -0.5px;
-        }
-
-        .logo-sub {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            margin-top: -3px;
-        }
-
-        nav a {
-            color: var(--text-color);
-            text-decoration: none;
-            margin-right: 20px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: color 0.2s;
-        }
-
-        nav a:hover {
-            color: var(--primary-blue);
-        }
-
-        .ticker-wrap {
-            width: 100%;
-            background-color: var(--card-bg);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-
-        .section-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-main);
-            padding: 24px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-        }
-
-        .section-title {
-            font-size: 1.4rem;
+        .logo-ar {
+            font-size: 1.1rem;
             font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--text-color);
+            color: #0f172a;
+            margin-bottom: 1px;
+        }
+        .logo-en {
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            color: #64748b;
+        }
+
+        /* حاوية المحتوى الرئيسي */
+        .main-content {
+            padding: 15px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
+        }
+        .section-title i {
+            color: #3b82f6;
         }
 
-        .section-title::before {
-            content: '';
-            display: inline-block;
-            width: 4px;
-            height: 20px;
-            background-color: var(--primary-blue);
-            border-radius: 2px;
+        .widget-box {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            margin-bottom: 20px;
         }
 
-        .market-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+        /* الشريط السفلي التفاعلي */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #ffffff;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 0;
+            box-shadow: 0 -4px 15px rgba(0,0,0,0.08);
+            border-top: 1px solid #e2e8f0;
+            z-index: 1000;
         }
-
-        .rounded-widget {
-            border-radius: var(--radius-sm);
-            overflow: hidden;
-            border: 1px solid var(--border-color);
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-type: none;
+            text-decoration: none;
+            color: #64748b;
+            font-size: 0.75rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .nav-item i {
+            font-size: 1.25rem;
+            margin-bottom: 4px;
+            transition: transform 0.3s ease;
+        }
+        .nav-item:hover, .nav-item.active {
+            color: #3b82f6;
+        }
+        .nav-item:hover i, .nav-item.active i {
+            transform: translateY(-3px) scale(1.1);
         }
     </style>
 </head>
 <body>
 
+    <!-- الهيدر بالشعار الجديد والمتناسق -->
     <header>
-        <div class="logo">
-            <span class="logo-title">الأسواق الآن</span>
-            <span class="logo-sub">marketss now</span>
+        <div class="logo-container">
+            <div class="logo-ar">الأسواق الآن</div>
+            <div class="logo-en">markets now</div>
         </div>
-        <nav>
-            <a href="index.html">الرئيسية</a>
-            <a href="article.html">التحليلات</a>
-            <a href="services.html">الخدمات المالية</a>
-            <a href="contact.html">اتصل بنا</a>
-        </nav>
     </header>
 
-    <div class="ticker-wrap">
-        <!-- TradingView Widget BEGIN -->
-        <div class="tradingview-widget-container">
-          <div class="tradingview-widget-container__widget"></div>
-<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-          {
-          "symbols": [
-            { "proName": "FOREXCOM:SPXUSD", "title": "S&P 500 Index" },
-            { "proName": "FOREXCOM:NSXUSD", "title": "US Tech 100" },
-            { "proName": "FX_IDC:EURUSD", "title": "EUR to USD" },
-            { "proName": "BITSTAMP:BTCUSD", "title": "Bitcoin" },
-            { "proName": "OANDA:XAUUSD", "title": "Gold" }
-          ],
-          "showSymbolLogo": true,
-          "colorTheme": "light",
-          "isTransparent": false,
-          "displayMode": "adaptive",
-          "locale": "ar_AE"
-        }
-          </script>
-        </div>
-        <!-- TradingView Widget END -->
+    <!-- شريط أسعار ترييد فيو المتحرك (مطابق للنموذج المطلوب تماماً) -->
+    <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+        {
+        "symbols": [{ "proName": "OANDA:XAUUSD", "title": "Gold" },
+          { "proName": "BITSTAMP:BTCUSD", "title": "Bitcoin" },
+          { "proName": "FX_IDC:EURUSD", "title": "EUR/USD" },
+          { "proName": "FX_IDC:GBPUSD", "title": "GBP/USD" },
+          { "proName": "FX_IDC:USDJPY", "title": "USD/JPY" },
+          { "proName": "ECONOMICS:USINTR", "title": "US Interest Rate" }
+        ],
+        "showSymbolLogo": true,
+        "isTransparent": false,
+        "displayMode": "adaptive",
+        "colorMode": "light",
+        "locale": "ar"
+      }
+        </script>
     </div>
+    <!-- نهاية شريط ترييد فيو -->
 
-    <div class="container">
-        <div class="section-card">
-            <div class="section-title">نشرة الأسعار والعملات الحية</div>
-            <div class="market-grid">
-                <div class="rounded-widget">
-                    <!-- TradingView Widget BEGIN -->
-                    <div class="tradingview-widget-container">
-                      <div class="tradingview-widget-container__widget"></div>
-                      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
-                      {
-                      "colorTheme": "light",
-                      "dateRange": "12M",
-                      "showChart": true,
-                      "locale": "ar_AE",
-                      "width": "100%",
-                      "height": "400",
-                      "largeChartUrl": "",
-                      "isTransparent": true,
-                      "showSymbolLogo": true,
-                      "showFloatingTooltip": false,
-                      "tabs": [
-                        {
-                          "title": "العملات والذهب",
-                          "symbols": [
-                            { "s": "OANDA:XAUUSD", "d": "الذهب / دولار" },
-                            { "s": "FX_IDC:EURUSD", "d": "يورو / دولار" },
-                            { "s": "FX_IDC:GBPUSD", "d": "باوند / دولار" },
-                            { "s": "FX_IDC:USDJPY", "d": "دولار / ين" }
-                          ]
-                        }
-                      ]
-                    }
-                      </script>
-                    </div>
-                    <!-- TradingView Widget END -->
-                </div>
+    <div class="main-content">
+        <div class="section-title">
+            <i class="fa-solid fa-chart-line"></i> نشرة الأسعار والعملات الحية
+        </div>
 
-                <div class="rounded-widget">
-                    <!-- TradingView Widget BEGIN -->
-                    <div class="tradingview-widget-container">
-                      <div class="tradingview-widget-container__widget"></div>
-                      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js" async>
-                      {
-                      "feedMode": "all_symbols",
-                      "colorTheme": "light",
-                      "isTransparent": true,
-                      "displayMode": "regular",
-                      "width": "100%",
-                      "height": "400",
-                      "locale": "ar_AE"
-                    }
-                      </script>
-                    </div>
-                    <!-- TradingView Widget END -->
-                </div>
+        <div class="widget-box">
+            <!-- TradingView Market Overview Widget BEGIN -->
+            <div class="tradingview-widget-container">
+                <div class="tradingview-widget-container__widget"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+                {
+                "colorMode": "light",
+                "width": "100%",
+                "height": "400",
+                "locale": "ar",
+                "tabs": [
+                  {
+                    "title": "العملات والذهب",
+                    "symbols": [
+                      { "s": "OANDA:XAUUSD", "d": "الذهب / دولار" },
+                      { "s": "FX_IDC:EURUSD", "d": "يورو / دولار" },
+                      { "s": "FX_IDC:GBPUSD", "d": "باوند / دولار" },
+                      { "s": "FX_IDC:USDJPY", "d": "دولار / ين" }
+                    ]
+                  }
+                ]
+                }
+                </script>
             </div>
+            <!-- TradingView Widget END -->
         </div>
     </div>
+
+    <!-- الشريط السفلي التفاعلي -->
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-item active">
+            <i class="fa-solid fa-house"></i>
+            <span>الرئيسية</span>
+        </a>
+        <a href="article.html" class="nav-item">
+            <i class="fa-solid fa-chart-pie"></i>
+            <span>التحليلات</span>
+        </a>
+        <a href="services.html" class="nav-item">
+            <i class="fa-solid fa-briefcase"></i>
+            <span>الخدمات المالية</span>
+        </a>
+        <a href="contact.html" class="nav-item">
+            <i class="fa-solid fa-headset"></i>
+            <span>اتصل بنا</span>
+        </a>
+    </nav>
 
 </body>
-</html>          
+</html>
