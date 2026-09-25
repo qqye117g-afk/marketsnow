@@ -3,135 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الخدمات المالية | الأسواق الآن</title>
+    <title>الخدمات المالية | markets now</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --bg-color: #f8fafc;
-            --card-bg: #ffffff;
-            --primary-blue: #1d4ed8;
-            --text-color: #0f172a;
-            --text-muted: #64748b;
-            --border-color: #e2e8f0;
-            --radius-main: 16px;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Tajawal', sans-serif; }
+        body { background-color: #f8f9fa; color: #333; padding-bottom: 90px; }
+        
+        header { background: #ffffff; padding: 12px 20px; text-align: center; border-bottom: 1px solid #e2e8f0; }
+        .logo-container { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .logo-ar { font-size: 1.1rem; font-weight: 700; color: #0f172a; margin-bottom: 1px; }
+        .logo-en { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.5px; color: #64748b; }
 
-        body {
-            margin: 0;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-        }
+        .main-content { padding: 20px; max-width: 800px; margin: 0 auto; }
+        .section-title { font-size: 1.1rem; font-weight: 700; color: #1e293b; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+        .section-title i { color: #3b82f6; }
 
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 5%;
-            background-color: var(--card-bg);
-            border-bottom: 1px solid var(--border-color);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-        }
+        .service-card { background: #ffffff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.04); margin-bottom: 15px; border: 1px solid #e2e8f0; display: flex; align-items: flex-start; gap: 15px; }
+        .service-icon { font-size: 1.8rem; color: #3b82f6; background: #eff6ff; padding: 12px; border-radius: 10px; }
+        .service-info h3 { font-size: 1.1rem; color: #1e293b; margin-bottom: 6px; }
+        .service-info p { font-size: 0.9rem; color: #64748b; line-height: 1.5; }
 
-        .logo {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .logo-title { font-size: 1.5rem; font-weight: 800; color: var(--text-color); }
-        .logo-sub { font-size: 0.75rem; color: var(--text-muted); margin-top: -3px; }
-
-        nav a {
-            color: var(--text-color);
-            text-decoration: none;
-            margin-right: 20px;
-            font-weight: 600;
-        }
-        nav a:hover { color: var(--primary-blue); }
-
-        .container {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        .page-title {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .page-title h1 { font-size: 2.2rem; color: var(--text-color); margin-bottom: 10px; }
-        .page-title p { color: var(--text-muted); font-size: 1.05rem; }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .service-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-main);
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-            transition: transform 0.2s, border-color 0.2s;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary-blue);
-        }
-
-        .service-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-
-        .service-card h3 { color: var(--text-color); margin-bottom: 12px; font-size: 1.25rem; }
-        .service-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
+        .bottom-nav { position: fixed; bottom: 0; left: 0; width: 100%; background: #ffffff; display: flex; justify-content: space-around; align-items: center; padding: 10px 0; box-shadow: 0 -4px 15px rgba(0,0,0,0.08); border-top: 1px solid #e2e8f0; z-index: 1000; }
+        .nav-item { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: #64748b; font-size: 0.75rem; font-weight: 500; transition: all 0.3s ease; }
+        .nav-item i { font-size: 1.25rem; margin-bottom: 4px; }
+        .nav-item.active { color: #3b82f6; }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">
-            <span class="logo-title">الأسواق الآن</span>
-            <span class="logo-sub">marketss now</span>
+        <div class="logo-container">
+            <div class="logo-ar">الأسواق الآن</div>
+            <div class="logo-en">markets now</div>
         </div>
-        <nav>
-            <a href="index.html">الرئيسية</a>
-            <a href="article.html">التحليلات</a>
-            <a href="services.html">الخدمات المالية</a>
-            <a href="contact.html">اتصل بنا</a>
-        </nav>
     </header>
 
-    <div class="container">
-        <div class="page-title">
-            <h1>خدماتنا المالية والتحليلية</h1>
-            <p>نقدم حلولاً ورؤى اقتصادية استثنائية لمساعدتك في اتخاذ قراراتك الاستثمارية بثقة</p>
+    <div class="main-content">
+        <div class="section-title">
+            <i class="fa-solid fa-briefcase"></i> خدماتنا المالية والاستثمارية
         </div>
 
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">📊</div>
-                <h3>التحليل الفني اليومي</h3>
-                <p>قراءات مستمرة لأهم أزواج العملات بالفوركس، الذهب، والأسهم العالمية باستخدام أحدث مؤشرات التداول.</p>
+        <div class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-chart-line"></i></div>
+            <div class="service-info">
+                <h3>إدارة المحافظ الاستثمارية</h3>
+                <p>استراتيجيات استثمارية مدروسة ومخصصة لإدارة الأصول وتقليل المخاطر في أسواق الفوركس والأسهم.</p>
             </div>
+        </div>
 
-            <div class="service-card">
-                <div class="service-icon">📰</div>
-                <h3>التغطية الإخبارية الحية</h3>
-                <p>متابعة دقيقة للأخبار الاقتصادية الصادرة عن البنوك المركزية والبيانات المؤثرة على حركة الأسواق.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">💡</div>
-                <h3>الاستشارات والاستراتيجيات</h3>
-                <p>تقارير دورية حول إدارة المخاطر وتوجيهات تناسب المحافظ الاستثمارية بمختلف مستوياتها.</p>
+        <div class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <div class="service-info">
+                <h3>الاستشارات المالية المتقدمة</h3>
+                <p>توجيه احترافي وتحليلات دقيقة لمساعدتك على اتخاذ القرارات الاستثمارية الصحيحة في الوقت المناسب.</p>
             </div>
         </div>
     </div>
 
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-item">
+            <i class="fa-solid fa-house"></i>
+            <span>الرئيسية</span>
+        </a>
+        <a href="services.html" class="nav-item active">
+            <i class="fa-solid fa-briefcase"></i>
+            <span>الخدمات المالية</span>
+        </a>
+        <a href="contact.html" class="nav-item">
+            <i class="fa-solid fa-headset"></i>
+            <span>اتصل بنا</span>
+        </a>
+    </nav>
+
 </body>
 </html>
+        <a href="article.html" class="nav-item">
+            <i class="fa-solid fa-chart-pie"></i>
+            <span>التحليلات</span>
+        </a>
