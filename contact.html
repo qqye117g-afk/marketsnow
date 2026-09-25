@@ -3,163 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>اتصل بنا | الأسواق الآن</title>
+    <title>اتصل بنا | markets now</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --bg-color: #f8fafc;
-            --card-bg: #ffffff;
-            --primary-blue: #1d4ed8;
-            --text-color: #0f172a;
-            --text-muted: #64748b;
-            --border-color: #e2e8f0;
-            --radius-main: 16px;
-            --radius-sm: 8px;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Tajawal', sans-serif; }
+        body { background-color: #f8f9fa; color: #333; padding-bottom: 90px; }
+        
+        header { background: #ffffff; padding: 12px 20px; text-align: center; border-bottom: 1px solid #e2e8f0; }
+        .logo-container { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .logo-ar { font-size: 1.1rem; font-weight: 700; color: #0f172a; margin-bottom: 1px; }
+        .logo-en { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.5px; color: #64748b; }
 
-        body {
-            margin: 0;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-        }
+        .main-content { padding: 20px; max-width: 800px; margin: 0 auto; }
+        .section-title { font-size: 1.1rem; font-weight: 700; color: #1e293b; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+        .section-title i { color: #3b82f6; }
 
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 5%;
-            background-color: var(--card-bg);
-            border-bottom: 1px solid var(--border-color);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-        }
+        .contact-box { background: #ffffff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.04); border: 1px solid #e2e8f0; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; font-size: 0.85rem; font-weight: 600; color: #1e293b; margin-bottom: 5px; }
+        .form-control { width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-family: 'Tajawal', sans-serif; font-size: 0.9rem; outline: none; transition: border-color 0.3s; }
+        .form-control:focus { border-color: #3b82f6; }
+        textarea.form-control { resize: vertical; height: 100px; }
+        .submit-btn { background: #3b82f6; color: #ffffff; border: none; padding: 12px; width: 100%; border-radius: 8px; font-weight: 700; font-size: 0.95rem; cursor: pointer; transition: background 0.3s; }
+        .submit-btn:hover { background: #2563eb; }
 
-        .logo {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .logo-title { font-size: 1.5rem; font-weight: 800; color: var(--text-color); }
-        .logo-sub { font-size: 0.75rem; color: var(--text-muted); margin-top: -3px; }
-
-        nav a {
-            color: var(--text-color);
-            text-decoration: none;
-            margin-right: 20px;
-            font-weight: 600;
-        }
-        nav a:hover { color: var(--primary-blue); }
-
-        .container {
-            max-width: 600px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        .page-title {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .page-title h1 { font-size: 2rem; color: var(--text-color); margin-bottom: 8px; }
-        .page-title p { color: var(--text-muted); }
-
-        .contact-form {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-main);
-            padding: 35px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: var(--text-color);
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
-
-        .form-group input, 
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 14px;
-            background-color: #f1f5f9;
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-sm);
-            color: var(--text-color);
-            box-sizing: border-box;
-            font-family: inherit;
-            font-size: 0.95rem;
-        }
-
-        .form-group input:focus, 
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary-blue);
-            background-color: #ffffff;
-        }
-
-        .submit-btn {
-            width: 100%;
-            background-color: #0f172a;
-            color: #ffffff;
-            padding: 14px;
-            border: none;
-            border-radius: var(--radius-sm);
-            font-weight: bold;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-
-        .submit-btn:hover {
-            background-color: var(--primary-blue);
-        }
+        .bottom-nav { position: fixed; bottom: 0; left: 0; width: 100%; background: #ffffff; display: flex; justify-content: space-around; align-items: center; padding: 10px 0; box-shadow: 0 -4px 15px rgba(0,0,0,0.08); border-top: 1px solid #e2e8f0; z-index: 1000; }
+        .nav-item { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: #64748b; font-size: 0.75rem; font-weight: 500; transition: all 0.3s ease; }
+        .nav-item i { font-size: 1.25rem; margin-bottom: 4px; }
+        .nav-item.active { color: #3b82f6; }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">
-            <span class="logo-title">الأسواق الآن</span>
-            <span class="logo-sub">marketss now</span>
+        <div class="logo-container">
+            <div class="logo-ar">الأسواق الآن</div>
+            <div class="logo-en">markets now</div>
         </div>
-        <nav>
-            <a href="index.html">الرئيسية</a>
-            <a href="article.html">التحليلات</a>
-            <a href="services.html">الخدمات المالية</a>
-            <a href="contact.html">اتصل بنا</a>
-        </nav>
     </header>
 
-    <div class="container">
-        <div class="page-title">
-            <h1>تواصل معنا</h1>
-            <p>لديك استفسار أو اقتراح؟ يسعدنا تواصلك معنا دائماً</p>
+    <div class="main-content">
+        <div class="section-title">
+            <i class="fa-solid fa-headset"></i> تواصل معنا
         </div>
-        <form class="contact-form" onsubmit="event.preventDefault(); alert('تم إرسال رسالتك بنجاح!');">
-            <div class="form-group">
-                <label>الاسم الكامل</label>
-                <input type="text" placeholder="اكتب اسمك هنا" required>
-            </div>
 
-            <div class="form-group">
-                <label>البريد الإلكتروني</label>
-                <input type="email" placeholder="example@domain.com" required>
-            </div>
-
-            <div class="form-group">
-                <label>نص الرسالة</label>
-                <textarea rows="5" placeholder="اكتب استفسارك أو رسالتك..." required></textarea>
-            </div>
-
-            <button type="submit" class="submit-btn">إرسال الرسالة</button>
-        </form>
+        <div class="contact-box">
+            <form>
+                <div class="form-group">
+                    <label>الاسم الكريم</label>
+                    <input type="text" class="form-control" placeholder="أدخل اسمك الكامل">
+                </div>
+                <div class="form-group">
+                    <label>البريد الإلكتروني</label>
+                    <input type="email5" class="form-control" placeholder="name@example.com">
+                </div>
+                <div class="form-group">
+                    <label>الرسالة</label>
+                    <textarea class="form-control" placeholder="اكتب استفسارك هنا..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">إرسال الرسالة</button>
+            </form>
+        </div>
     </div>
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-item">
+            <i class="fa-solid fa-house"></i>
+            <span>الرئيسية</span>
+        </a>
+        <a href="article.html" class="nav-item">
+            <i class="fa-solid fa-chart-pie"></i>
+            <span>التحليلات</span>
+        </a>
+        <a href="services.html" class="nav-item">
+            <i class="fa-solid fa-briefcase"></i>
+            <span>الخدمات المالية</span>
+        </a>
+        <a href="contact.html" class="nav-item active">
+            <i class="fa-solid fa-headset"></i>
+            <span>اتصل بنا</span>
+        </a>
+    </nav>
 
 </body>
 </html>
