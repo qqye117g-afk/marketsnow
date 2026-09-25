@@ -3,147 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تحليل حركة الفيدرالي | الأسواق الآن</title>
+    <title>التحليلات المالية | markets now</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --bg-color: #f8fafc;
-            --card-bg: #ffffff;
-            --primary-blue: #1d4ed8;
-            --text-color: #0f172a;
-            --text-muted: #64748b;
-            --border-color: #e2e8f0;
-            --radius-main: 16px;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Tajawal', sans-serif; }
+        body { background-color: #f8f9fa; color: #333; padding-bottom: 90px; }
+        
+        header { background: #ffffff; padding: 12px 20px; text-align: center; border-bottom: 1px solid #e2e8f0; }
+        .logo-container { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .logo-ar { font-size: 1.1rem; font-weight: 700; color: #0f172a; margin-bottom: 1px; }
+        .logo-en { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.5px; color: #64748b; }
 
-        body {
-            margin: 0;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.7;
-        }
+        .main-content { padding: 20px; max-width: 800px; margin: 0 auto; }
+        .section-title { font-size: 1.1rem; font-weight: 700; color: #1e293b; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+        .section-title i { color: #3b82f6; }
 
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 5%;
-            background-color: var(--card-bg);
-            border-bottom: 1px solid var(--border-color);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-        }
+        .article-card { background: #ffffff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.04); margin-bottom: 15px; border: 1px solid #e2e8f0; }
+        .article-card h3 { font-size: 1.1rem; color: #1e293b; margin-bottom: 8px; }
+        .article-card p { font-size: 0.9rem; color: #64748b; line-height: 1.6; }
+        .article-date { font-size: 0.75rem; color: #94a3b8; margin-top: 10px; display: block; }
 
-        .logo {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .logo-title {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--text-color);
-        }
-
-        .logo-sub {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            margin-top: -3px;
-        }
-
-        nav a {
-            color: var(--text-color);
-            text-decoration: none;
-            margin-right: 20px;
-            font-weight: 600;
-        }
-        nav a:hover { color: var(--primary-blue); }
-
-        .container {
-            max-width: 850px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        .article-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-main);
-            padding: 35px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-        }
-
-        .tag {
-            background-color: #eff6ff;
-            color: var(--primary-blue);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 700;
-        }
-
-        h1 {
-            font-size: 1.9rem;
-            margin-top: 20px;
-            color: var(--text-color);
-            line-height: 1.4;
-        }
-
-        .meta {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 25px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 15px;
-        }
-
-        .article-body {
-            font-size: 1.05rem;
-            color: #334155;
-        }
-
-        .quote-box {
-            background-color: #f1f5f9;
-            border-right: 4px solid var(--primary-blue);
-            padding: 20px;
-            margin: 25px 0;
-            border-radius: 0 12px 12px 0;
-            font-weight: 500;
-        }
+        .bottom-nav { position: fixed; bottom: 0; left: 0; width: 100%; background: #ffffff; display: flex; justify-content: space-around; align-items: center; padding: 10px 0; box-shadow: 0 -4px 15px rgba(0,0,0,0.08); border-top: 1px solid #e2e8f0; z-index: 1000; }
+        .nav-item { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: #64748b; font-size: 0.75rem; font-weight: 500; transition: all 0.3s ease; }
+        .nav-item i { font-size: 1.25rem; margin-bottom: 4px; }
+        .nav-item.active { color: #3b82f6; }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">
-            <span class="logo-title">الأسواق الآن</span>
-            <span class="logo-sub">marketss now</span>
+        <div class="logo-container">
+            <div class="logo-ar">الأسواق الآن</div>
+            <div class="logo-en">markets now</div>
         </div>
-        <nav>
-            <a href="index.html">الرئيسية</a>
-            <a href="article.html">التحليلات</a>
-            <a href="services.html">الخدمات المالية</a>
-            <a href="contact.html">اتصل بنا</a>
-        </nav>
     </header>
 
-    <div class="container">
+    <div class="main-content">
+        <div class="section-title">
+            <i class="fa-solid fa-chart-pie"></i> أحدث التحليلات الاقتصادية
+        </div>
+
         <div class="article-card">
-            <span class="tag">تحليلات فوركس</span>
-            <h1>تحليل حركة الفيدرالي وتأثيرها المرتقب على مسار الدولار الأمريكي</h1>
-            <div class="meta">تاريخ النشر: اليوم • قسم التحليل الفني والمالي</div>
+            <h3>تحليل أداء الذهب وتوقعات الأسعار للفترة القادمة</h3>
+            <p>يواصل المعدن الأصفر تسجيل مستويات قياسية وسط ترقب الأسواق لقرارات الفائدة العالمية وتطورات التضخم...</p>
+            <span class="article-date">منذ ساعتين</span>
+        </div>
 
-            <div class="article-body">
-                <p>تترقب الأسواق المالية العالمية عن كثب القرارات القادمة الصادرة عن البنك الفيدرالي الأمريكي، حيث تتزايد التكهنات بشأن الاتجاه المستقبلي لأسعار الفائدة والمؤشرات الاقتصادية المرتبطة بالتضخم وسوق العمل.</p>
-                <div class="quote-box">
-                    "النقطة المحورية للأسواق الآن تتلخص في مستويات الفائدة الحقيقية وكيفية تجاوب أزواج العملات الرئيسية مثل EUR/USD و GBP/USD مع التحديثات الأخيرة."
-                </div>
-
-                <p>ويرى المحللون الماليون أن أي تلميح نحو تثبيت أو خفض الفائدة قد يعطي دفعة قوية لأسعار الذهب والأسهم، بينما يضغط في الوقت ذاته على مستويات مؤشر الدولار (DXY).</p>
-
-                <p><strong>توصية المتابعة:</strong> يُنصح المتداولون والمستثمرون بإدارة المخاطر بحذر شديد خلال فترة صدور البيانات الاقتصادية الهامة لتجنب الانزلاقات السعرية التذبذبية.</p>
-            </div>
+        <div class="article-card">
+            <h3>نظرة فنية على تحركات زوج اليورو مقابل الدّولار</h3>
+            <p>يختبر الزوج مستويات دعم هامة وسط ضغوط بيعية واضحة في الجلسات الأوروبية والأمريكية...</p>
+            <span class="article-date">منذ 5 ساعات</span>
         </div>
     </div>
+
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-item">
+            <i class="fa-solid fa-house"></i>
+            <span>الرئيسية</span>
+        </a>
+        <a href="article.html" class="nav-item active">
+            <i class="fa-solid fa-chart-pie"></i>
+            <span>التحليلات</span>
+        </a>
+        <a href="services.html" class="nav-item">
+            <i class="fa-solid fa-briefcase"></i>
+            <span>الخدمات المالية</span>
+        </a>
+        <a href="contact.html" class="nav-item">
+            <i class="fa-solid fa-headset"></i>
+            <span>اتصل بنا</span>
+        </a>
+    </nav>
 
 </body>
 </html>
