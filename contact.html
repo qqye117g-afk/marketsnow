@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اتصل بنا | الأسواق الآن</title>
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #151c2c;
+            --accent-color: #38bdf8;
+            --text-color: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #1e293b;
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 5%;
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo { font-size: 1.6rem; font-weight: 800; color: var(--accent-color); }
+        .logo span { color: #ffffff; }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-right: 18px;
+            font-weight: 500;
+        }
+        nav a:hover { color: var(--accent-color); }
+
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .page-title h1 { font-size: 2rem; color: #fff; }
+        .page-title p { color: var(--text-muted); }
+
+        .contact-form {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-color);
+            font-size: 0.95rem;
+        }
+
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: #fff;
+            box-sizing: border-box;
+            font-family: inherit;
+        }
+
+        .form-group input:focus, 
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: var(--accent-color);
+            color: #000;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .submit-btn:hover {
+            background-color: #7dd3fc;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">الأسواق <span>الآن</span></div>
+        <nav>
+            <a href="index.html">الرئيسية</a>
+            <a href="article.html">التحليلات</a>
+            <a href="services.html">الخدمات المالية</a>
+            <a href="contact.html">اتصل بنا</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="page-title">
+            <h1>تواصل معنا</h1>
+            <p>لديك استفسار أو اقتراح؟ يسعدنا تواصلك معنا دائماً</p>
+        </div>
+
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('تم إرسال رسالتك بنجاح!');">
+            <div class="form-group">
+                <label>الاسم الكامل</label>
+                <input type="text" placeholder="اكتب اسمك هنا" required>
+            </div>
+
+            <div class="form-group">
+                <label>البريد الإلكتروني</label>
+                <input type="email" placeholder="example@domain.com" required>
+            </div>
+            <div class="form-group">
+                <label>نص الرسالة</label>
+                <textarea rows="5" placeholder="اكتب استفسارك أو رسالتك..." required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">إرسال الرسالة</button>
+        </form>
+    </div>
+
+</body>
+</html>

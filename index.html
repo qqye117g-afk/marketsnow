@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأسواق الآن | المنصة المالية والاقتصادية الشاملة</title>
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #151c2c;
+            --accent-color: #38bdf8;
+            --text-color: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #1e293b;
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 5%;
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--accent-color);
+        }
+
+        .logo span { color: #ffffff; }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-right: 18px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover { color: var(--accent-color); }
+
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 20px 0 10px;
+        }
+
+        .hero h1 {
+            font-size: 2.3rem;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .news-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 22px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-color);
+        }
+
+        .news-card h3 {
+            margin-top: 12px;
+            font-size: 1.2rem;
+            line-height: 1.4;
+            color: #ffffff;
+        }
+
+        .news-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .tag {
+            background-color: rgba(56, 189, 248, 0.1);
+            color: var(--accent-color);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .widget-section {
+            margin-top: 40px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- شريط أسعار مالي مباشر ومتحرك تلقائياً من TradingView -->
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+      {
+      "symbols": [
+        { "proName": "FOREXCOM:SPXUSD", "title": "S&P 500" },
+        { "proName": "FOREXCOM:NSXUSD", "title": "US 100" },
+        { "proName": "FX_IDC:EURUSD", "title": "EUR/USD" },
+        { "proName": "BITSTAMP:BTCUSD", "title": "Bitcoin" },
+        { "proName": "OANDA:XAUUSD", "title": "Gold" }
+      ],
+      "showSymbolLogo": true,
+      "colorTheme": "dark",
+      "isTransparent": false,
+      "displayMode": "adaptive",
+      "locale": "ar_AE"
+    }
+      </script>
+    </div>
+    <!-- الهيدر باسم المنصة -->
+    <header>
+        <div class="logo">الأسواق <span>الآن</span></div>
+        <nav>
+            <a href="index.html">الرئيسية</a>
+            <a href="article.html">التحليلات</a>
+            <a href="services.html">الخدمات المالية</a>
+            <a href="contact.html">اتصل بنا</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section class="hero">
+            <h1>نبض الاقتصاد والأسواق العالمية لحظة بلحظة</h1>
+            <p>تغطية شاملة لأسواق المال، الفوركس، الأسهم، والتطورات الاقتصادية بأسلوب تحليلي موثوق.</p>
+        </section>
+
+        <!-- قسم الجدول المالي التفاعلي المباشر -->
+        <h2>حركة الأسواق والعملات المباشرة</h2>
+        <div class="widget-section">
+            <div class="tradingview-widget-container">
+              <div class="tradingview-widget-container__widget"></div>
+              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+              {
+              "colorTheme": "dark",
+              "dateRange": "1D",
+              "showChart": true,
+              "locale": "ar_AE",
+              "width": "100%",
+              "height": "400",
+              "largeChartUrl": "",
+              "isTransparent": true,
+              "showSymbolLogo": true,
+              "showFloatingTooltip": false,
+              "tabs": [
+                {
+                  "title": "الفوركس والعملات",
+                  "symbols": [
+                    { "s": "FX:EURUSD", "d": "EUR / USD" },
+                    { "s": "FX:GBPUSD", "d": "GBP / USD" },
+                    { "s": "FX:USDJPY", "d": "USD / JPY" }
+                  ]
+                },
+                {
+                  "title": "السلع والذهب",
+                  "symbols": [
+                    { "s": "OANDA:XAUUSD", "d": "الذهب" },
+                    { "s": "TVC:USOIL", "d": "النفط" }
+                  ]
+                }
+              ]
+            }
+              </script>
+            </div>
+        </div>
+
+        <!-- قسم الأخبار والتحليلات -->
+        <h2 style="margin-top: 50px;">أحدث الأخبار والتحليلات</h2>
+        <div class="news-grid">
+            <div class="news-card">
+                <span class="tag">فوركس</span>
+                <h3><a href="article.html" style="color: inherit; text-decoration: none;">تحليل حركة الفيدرالي وتأثيرها المرتقب على مسار الدولار الأمريكي</a></h3>
+                <p>توقعات الأسواق بخصوص قرارات أسعار الفائدة المقبلة وتأثيرها المباشر على أزواج العملات الرئيسية...</p>
+            </div>
+            <div class="news-card">
+                <span class="tag">أسواق وتداول</span>
+                <h3>ارتفاع أسعار الذهب وسط تحولات الأسواق العالمية</h3>
+                <p>قراءة تحليليّة لأسباب ارتفاع أسعار المعدن الأصفر والمستويات الفنية المتوقعة للفترة القادمة...</p>
+            </div>
+            <div class="news-card">
+                <span class="tag">اقتصاد عالمي</span>
+                <h3>مؤشرات النمو الاقتصادي ومعدلات التضخم</h3>
+                <p>استعراض لأهم البيانات الاقتصادية الصادرة حديثاً وتأثيرها على قرارات المستثمرين والأسواق...</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

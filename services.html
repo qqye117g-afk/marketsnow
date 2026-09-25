@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الخدمات المالية | الأسواق الآن</title>
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #151c2c;
+            --accent-color: #38bdf8;
+            --text-color: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #1e293b;
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 5%;
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo { font-size: 1.6rem; font-weight: 800; color: var(--accent-color); }
+        .logo span { color: #ffffff; }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-right: 18px;
+            font-weight: 500;
+        }
+        nav a:hover { color: var(--accent-color); }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .page-title h1 { font-size: 2.2rem; color: #fff; }
+        .page-title p { color: var(--text-muted); font-size: 1.1rem; }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 { color: #fff; margin-bottom: 10px; }
+        .service-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">الأسواق <span>الآن</span></div>
+        <nav>
+            <a href="index.html">الرئيسية</a>
+            <a href="article.html">التحليلات</a>
+            <a href="services.html">الخدمات المالية</a>
+            <a href="contact.html">اتصل بنا</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="page-title">
+            <h1>خدماتنا المالية والتحليلية</h1>
+            <p>نقدم حلولاً ورؤى اقتصادية استثنائية لمساعدتك في اتخاذ قراراتك الاستثمارية بثقة</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>التحليل الفني اليومي</h3>
+                <p>قراءات مستمرة لأهم أزواج العملات بالفوركس، الذهب، والأسهم العالمية باستخدام أحدث مؤشرات التداول.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📰</div>
+                <h3>التغطية الإخبارية الحية</h3>
+                <p>متابعة دقيقة للأخبار الاقتصادية الصادرة عن البنوك المركزية والبيانات المؤثرة على حركة الأسواق.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">💡</div>
+                <h3>الاستشارات والاستراتيجيات</h3>
+                <p>تقارير دورية حول إدارة المخاطر وتوجيهات تناسب المحافظ الاستثمارية بمختلف مستوياتها.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
